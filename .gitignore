@@ -1,0 +1,46 @@
+# Ignore generated files
+*~
+*.log
+*.iml
+*.ipr
+*.iws
+*_IS_UNDEFINED
+*.class
+
+# Ignore hidden files, but not .gitignore
+.*
+!.gitignore
+!.babelrc
+!.browserslistrc
+!.eslintignore
+!.stylelintignore
+!.editorconfig
+
+
+
+# Ignore large files to prevent accidental additions
+*.bin
+*.bmp
+*.exe
+*.gif
+*.jar
+*.jpg
+*.png
+*.psd
+*.tar*
+*.zip
+
+# Ignore user properties
+env.properties
+
+# Ignore output folders
+bin
+build
+logs
+node_modules
+out
+tmp
+
+webapps/package-lock.json
+webapps/sdfc-web/package-lock.json
+/target/

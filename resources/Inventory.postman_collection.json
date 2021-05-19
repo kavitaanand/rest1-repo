@@ -1,0 +1,710 @@
+{
+	"info": {
+		"_postman_id": "ebc46ce0-ba64-4311-aba3-7e803e4b4e60",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add_success_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"id\": 9,\n    \"name\": \"Eraser\",\n    \"price\": 10\n  }\n}"
+				},
+				"url": {
+					"raw": "?client-id=ankur-postman",
+					"query": [
+						{
+							"key": "client-id",
+							"value": "ankur-postman"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_failure_item_adready_exists_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item\": {\n        \"id\": 3,\n        \"name\": \"Eraser\",\n        \"price\": 10\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_failure_missing_field_id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item\": {\n        \"name\": \"Eraser\",\n        \"price\": 10\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/add?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"add"
+					],
+					"query": [
+						{
+							"key": "client-id",
+							"value": "ankur-postman",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_failure_missing_field_name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item\": {\n        \"id\": 3,\n        \"price\": 10\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_failure_missing_field_price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item\": {\n        \"id\": 3,\n        \"name\": \"Eraser\"\n        \n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById_success_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/findById",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"findById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById_failure_missing_field_id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/findById",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"findById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByName_success_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Lamp\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/findByName",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"findByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByName_failure_missing_field_name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/findByName",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"findByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByName_failure_name_not_found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"aaa\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/findByName",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"findByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listall_success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/listall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"listall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove_success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove_failure_itemId_missing",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove_failure_itemId_not_found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemId\": 33\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"id\": 1,\n    \"name\": \"Watch\",\n    \"price\": 99.99\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_failure_missing_field_name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"id\": 1,\n    \"price\": 0\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_failure_missing_field_price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"id\": 0,\n    \"name\": \"string\"\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_failure_missing_field_id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"name\": \"string\",\n    \"price\": 0\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_failure_id_not_found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client-id",
+						"value": "ankur-postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item\": {\n    \"id\": 1,\n    \"name\": \"Rubber\",\n    \"price\": 10.90\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7000/inventory/services/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"inventory",
+						"services",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
