@@ -43,7 +43,7 @@ pipeline{
             stage('deploy'){
                 steps{
                     echo 'Deployment in progress............'
-                        sh """ chmod 777 /Users/kavit/Downloads/rest_service/target/RestService-0.0.1-SNAPSHOT.jar """
+                        sh """ chmod -R 777 /Users/kavit/Downloads/rest_service/target/RestService-0.0.1-SNAPSHOT.jar """
                         //sh """ 'java -jar RestService-0.0.1-SNAPSHOT.jar' """
 
                          withMaven(maven: 'maven_3_6_3'){
